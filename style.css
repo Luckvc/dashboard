@@ -1,0 +1,90 @@
+:root {
+    /* Colors Primary */
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+     /* Dark Colors */
+    --ToggleBtnDark: linear-gradient(to right,hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    --ColorDark: hsl(0, 0%, 100%);
+    --ColorDarkLight: hsl(228, 34%, 66%);
+    --BgLightCard: hsl(228, 28%, 20%);
+    --BgLightCardHover: hsl(228, 26%, 26%);
+    --BgLight: hsl(230, 17%, 14%);
+    --BgLightTop: hsl(232, 19%, 15%); 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background: var(--BgLightTop);
+}
+body::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 200px;
+    bottom: 0;
+    z-index: -1;
+    bottom: 0;
+    background: var(--BgLight);
+}
+body .container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.title {
+    color: var(--ColorDark);
+    font-size: 45px;
+}
+.rotinas {
+    display:grid ;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--BgLightCard);
+    position: relative;
+}
+.card:hover {
+    background: var(--BgLightCardHover)
+}
+.card::before {
+    content: '';
+    position: absolute;
+    height: 5px;
+    border-radius: 8px 8px 0 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.card.chegada::before {
+    background: var(--LimeGreen);
+}
+.card.saida::before {
+    background: var(--BrightRed);
+}  
+.rotinas p {
+    font-size: 2em;
+    font-weight: 400;
+    color: var(--ColorDark);
+}
+.grid_menu {
+    display: grid ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+}
+.sub-title {
+    color: var(--ColorDark);
+    font-size: 30px;
+}
+.menu p {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--ColorDark);
+}
