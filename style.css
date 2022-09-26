@@ -2,14 +2,14 @@
     /* Colors Primary */
     --LimeGreen: hsl(163, 72%, 41%);
     --BrightRed: hsl(356, 69%, 56%);
-     /* Dark Colors */
-    --ToggleBtnDark: linear-gradient(to right,hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    /* Dark Colors */
+    --ToggleBtnDark: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
     --ColorDark: hsl(0, 0%, 100%);
     --ColorDarkLight: hsl(228, 34%, 66%);
     --BgLightCard: hsl(228, 28%, 20%);
     --BgLightCardHover: hsl(228, 26%, 26%);
     --BgLight: hsl(230, 17%, 14%);
-    --BgLightTop: hsl(232, 19%, 15%); 
+    --BgLightTop: hsl(232, 19%, 15%);
 }
 
 body {
@@ -17,6 +17,7 @@ body {
     font-size: 14px;
     background: var(--BgLightTop);
 }
+
 body::after {
     content: '';
     position: fixed;
@@ -28,19 +29,23 @@ body::after {
     bottom: 0;
     background: var(--BgLight);
 }
+
 body .container {
     max-width: 80%;
     margin: 0 auto;
 }
+
 .title {
     color: var(--ColorDark);
     font-size: 45px;
 }
+
 .rotinas {
-    display:grid ;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
 }
+
 .card {
     display: flex;
     flex-direction: column;
@@ -51,9 +56,11 @@ body .container {
     background: var(--BgLightCard);
     position: relative;
 }
+
 .card:hover {
     background: var(--BgLightCardHover)
 }
+
 .card::before {
     content: '';
     position: absolute;
@@ -63,28 +70,273 @@ body .container {
     right: 0;
     top: 0;
 }
+
 .card.chegada::before {
     background: var(--LimeGreen);
 }
+
 .card.saida::before {
     background: var(--BrightRed);
-}  
+}
+
 .rotinas p {
     font-size: 2em;
     font-weight: 400;
     color: var(--ColorDark);
 }
+
 .grid_menu {
-    display: grid ;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 50px;
 }
+
 .sub-title {
     color: var(--ColorDark);
     font-size: 30px;
 }
+
 .menu p {
     font-size: 1.5em;
     font-weight: 400;
     color: var(--ColorDark);
+}
+
+.bt1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+}
+
+/* botão liga-desliga */
+input[type="checkbox"] {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    background-color: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(85, 85, 85, 0.2);
+    transition: .2s;
+    cursor: pointer;
+
+}
+
+input:checked[type="checkbox"] {
+    background-color: #000;
+    /* cor de fundo que vai ser aplicada quando o checkbox tiver uma alteração para checked */
+}
+
+input[type="checkbox"]:before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    transform: scale(1.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+
+input:checked[type="checkbox"]:before {
+    left: 40px;
+}
+
+/* bolinhas coloridas pulsantes */
+.blobs-container {
+    display: flex;
+}
+
+.blob {
+    background: black;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    margin: 10px;
+    height: 20px;
+    width: 20px;
+    transform: scale(1);
+    animation: pulse-black 2s infinite;
+}
+
+@keyframes pulse-black {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.blob.white {
+    background: white;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    animation: pulse-white 2s infinite;
+}
+
+@keyframes pulse-white {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.blob.red {
+    background: rgba(255, 82, 82, 1);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+}
+
+.blob.orange {
+    background: rgba(255, 121, 63, 1);
+    box-shadow: 0 0 0 0 rgba(255, 121, 63, 1);
+    animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 121, 63, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+    }
+}
+
+.blob.yellow {
+    background: rgba(255, 177, 66, 1);
+    box-shadow: 0 0 0 0 rgba(255, 177, 66, 1);
+    animation: pulse-yellow 2s infinite;
+}
+
+@keyframes pulse-yellow {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 177, 66, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 177, 66, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
+    }
+}
+
+.blob.blue {
+    background: rgba(52, 172, 224, 1);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+    animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+    }
+}
+
+.blob.green {
+    background: rgba(51, 217, 178, 1);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+    }
+}
+
+.blob.purple {
+    background: rgba(142, 68, 173, 1);
+    box-shadow: 0 0 0 0 rgba(142, 68, 173, 1);
+    animation: pulse-purple 2s infinite;
+}
+
+@keyframes pulse-purple {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+    }
 }
